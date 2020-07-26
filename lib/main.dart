@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:audioplayers/audio_cache.dart';
 
 void main() {
   runApp(
@@ -17,11 +18,17 @@ class PagePhone extends StatelessWidget {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Container(
-        color: Colors.white,
-        child: Column(
-          children: <Widget>[Text('ok')],
-        ),
-      ),
+          color: Colors.white,
+          child: Center(
+            child: FlatButton(
+              child: Text("Click me!"),
+              onPressed: () {
+                print('ok');
+                final player = AudioCache();
+                player.play('note1.wav');
+              },
+            ),
+          )),
     );
   }
 }
